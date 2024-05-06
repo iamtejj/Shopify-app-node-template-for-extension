@@ -7,10 +7,9 @@ import {
   Banner,
   Button
 } from "@shopify/polaris";
-import { TitleBar } from "@shopify/app-bridge-react";
+
 import { useTranslation, Trans  } from "react-i18next";
 
-import { trophyImage } from "../assets";
 import "../assets/global.css"
 import '../styles/home.scss'
 import { ProductsCard } from "../components";
