@@ -3,7 +3,7 @@
 client_id = "31df2f6ccd03151c1168988807e67a1f"
 name = "theme app extesion demo"
 handle = "theme-app-extesion-demo"
-application_url = "https://plaintiff-satisfy-du-capacity.trycloudflare.com"
+application_url = "https://neil-verse-charter-header.trycloudflare.com"
 embedded = true
 
 [build]
@@ -16,9 +16,9 @@ scopes = "read_content,read_script_tags,write_content,write_products,write_scrip
 
 [auth]
 redirect_urls = [
-  "https://plaintiff-satisfy-du-capacity.trycloudflare.com/auth/callback",
-  "https://plaintiff-satisfy-du-capacity.trycloudflare.com/auth/shopify/callback",
-  "https://plaintiff-satisfy-du-capacity.trycloudflare.com/api/auth/callback"
+  "https://neil-verse-charter-header.trycloudflare.com/auth/callback",
+  "https://neil-verse-charter-header.trycloudflare.com/auth/shopify/callback",
+  "https://neil-verse-charter-header.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

@@ -4,19 +4,34 @@ import '../styles/home.scss'
 import { useAuthenticatedFetch } from "../hooks"
 import { useEffect, useState } from "react";
 export default function Billing(){
-    const [allreadySubscribed,setAllreadysubscribed] = useState(false)
+    const [allreadySubscribed,setAllreadysubscribed] = useState(false);
+    const [activeSubscription,setActiveSubscription] = useState([])
     const fetch = useAuthenticatedFetch();
 
     async function getSubscriptionDetails(){
         const dataSubscription = await fetch('/api/getSubscription');
+        
         const jsonSubscription = await dataSubscription.json();
         if(jsonSubscription.length > 0){
             setAllreadysubscribed(true)
+            setActiveSubscription(jsonSubscription[0])
         }
         console.log(jsonSubscription)
     }
     async function cancelsubscription(){
-        
+        const formData = {id:activeSubscription.id}
+        const response = await fetch("/api/cancelsubscription", {
+            method: "POST", 
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          });
+          
+          
+          const scData = await response.json()
+          window.location.reload()
+        console.log(scData)
     }
     useEffect(()=>{
         getSubscriptionDetails()

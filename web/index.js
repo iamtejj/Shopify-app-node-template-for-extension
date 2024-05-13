@@ -9,7 +9,7 @@ import productCreator from "./product-creator.js";
 import PrivacyWebhookHandlers from "./privacy.js";
 import subscriptiondetail from "./utils/getSubscirpiton.js";
 import createNewSubscription from "./utils/createSubscription.js";
-import { enablecheckoutblock } from "./utils/checkoutblock.js";
+import { cancelSubscription, enablecheckoutblock } from "./utils/checkoutblock.js";
 import 'dotenv/config'
 import mongoose from "mongoose";
 import verifyRequest from "./utils/verifyRequest.js";
@@ -63,6 +63,12 @@ app.get("/api/getSubscription", async (_req, res) => {
 app.get("/api/createSubscription", async (_req, res) => {
   const session =  res.locals.shopify.session
   const data = await createNewSubscription(session)
+  res.status(200).send(data);
+});
+app.post("/api/cancelsubscription", async (req, res) => {
+  const session =  res.locals.shopify.session;
+  const id = req.body.id
+  const data = await cancelSubscription(session,id)
   res.status(200).send(data);
 });
 

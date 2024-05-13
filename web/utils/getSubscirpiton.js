@@ -8,6 +8,7 @@ export default async function subscriptiondetail(session){
           activeSubscriptions {
             name
             status
+            id
             test
             lineItems {
               plan {
@@ -27,5 +28,6 @@ export default async function subscriptiondetail(session){
         }
       }`
     const response = await client.request(getsubscripition);
+    
     return response.data.appInstallation.activeSubscriptions
 }
