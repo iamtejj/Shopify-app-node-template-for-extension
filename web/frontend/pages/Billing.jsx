@@ -3,6 +3,7 @@ import "../assets/global.css"
 import '../styles/home.scss'
 import { useAuthenticatedFetch } from "../hooks"
 import { useEffect, useState } from "react";
+
 export default function Billing(){
     const [allreadySubscribed,setAllreadysubscribed] = useState(false);
     const [activeSubscription,setActiveSubscription] = useState([])
@@ -16,6 +17,9 @@ export default function Billing(){
             setAllreadysubscribed(true)
             setActiveSubscription(jsonSubscription[0])
         }
+        else{
+            setAllreadysubscribed(false)
+        }
         console.log(jsonSubscription)
     }
     async function cancelsubscription(){
@@ -27,11 +31,15 @@ export default function Billing(){
             },
             body: JSON.stringify(formData),
           });
-          
-          
           const scData = await response.json()
-          window.location.reload()
-        console.log(scData)
+          getSubscriptionDetails()
+        
+    }
+    async function createNewSubscription(){
+        let response = await fetch("/api/createSubscription");
+        let jsonResponse = await response.json();
+        open(jsonResponse.data.appSubscriptionCreate.confirmationUrl, "_top");
+        console.log(jsonResponse.data.appSubscriptionCreate.confirmationUrl);
     }
     useEffect(()=>{
         getSubscriptionDetails()
@@ -56,7 +64,7 @@ export default function Billing(){
                     <List.Item>Unlimited orders</List.Item>
                 </List>
                 </div>
-                <Button disabled={allreadySubscribed}  fullWidth={true}>
+                <Button onClick={createNewSubscription} disabled={allreadySubscribed}  fullWidth={true}>
                     Try Now
                 </Button>
 

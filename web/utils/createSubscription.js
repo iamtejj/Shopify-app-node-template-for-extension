@@ -5,8 +5,8 @@ export default async function createNewSubscription(session) {
         console.log(session)
         const returnUrl = `https://${shopify.api.config.hostName}/api/auth?shop=${session.shop}`;
         console.log(returnUrl)
-        const planName = "$15.00 plan";
-        const planPrice = 15.00; //Always a decimal
+        const planName = "$10.00 plan";
+        const planPrice = 10.00; //Always a decimal
         const newSubscriptionQuery = `mutation CreateSubscription{
         appSubscriptionCreate(
           name: "${planName}"
