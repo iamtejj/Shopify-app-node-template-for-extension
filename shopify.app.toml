@@ -3,7 +3,7 @@
 client_id = "31df2f6ccd03151c1168988807e67a1f"
 name = "theme app extesion demo"
 handle = "theme-app-extesion-demo"
-application_url = "https://agents-communications-merger-democrats.trycloudflare.com"
+application_url = "https://local-casual-mighty-references.trycloudflare.com"
 embedded = true
 
 [build]
@@ -16,9 +16,9 @@ scopes = "read_content,read_script_tags,write_content,write_products,write_scrip
 
 [auth]
 redirect_urls = [
-  "https://agents-communications-merger-democrats.trycloudflare.com/auth/callback",
-  "https://agents-communications-merger-democrats.trycloudflare.com/auth/shopify/callback",
-  "https://agents-communications-merger-democrats.trycloudflare.com/api/auth/callback"
+  "https://local-casual-mighty-references.trycloudflare.com/auth/callback",
+  "https://local-casual-mighty-references.trycloudflare.com/auth/shopify/callback",
+  "https://local-casual-mighty-references.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
